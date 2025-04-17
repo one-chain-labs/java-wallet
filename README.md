@@ -2,11 +2,7 @@
 
 # One chain wallet java sdk
 
-## [documents](https://github.com/one-chain-labs/onechain) 
-
-
-
-
+## [documents](https://github.com/one-chain-labs/onechain/blob/oct/docs/content/references/sdk.mdx) 
 
 
 ## How to use it

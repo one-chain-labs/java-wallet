@@ -94,7 +94,7 @@ public class HuionePayTest {
 
 
     static {
-        huioneWalletClient = new OkhttpHuioneWalletClient("http://10.71.9.46:8080");
+        huioneWalletClient = new OkhttpHuioneWalletClient("https://onechain-api.tpknp.com/app/api/");
         didApi = huioneWalletClient;
         transferApi = huioneWalletClient;
         walletApi = huioneWalletClient;

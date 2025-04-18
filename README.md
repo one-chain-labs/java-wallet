@@ -25,6 +25,8 @@ mvn -DskipTests=true install
 
 
 ### Connecting to wallet
+- devnet-wallet:https://onechain-api.tpknp.com/app/api/
+- mainnet-wallet:
 ```java
 huioneWalletClient = new OkhttpHuioneWalletClient("<wallet_url>");
 ```

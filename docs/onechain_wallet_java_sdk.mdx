@@ -25,7 +25,7 @@ mvn -DskipTests=true install
 - devnet-wallet:https://onechain-api.tpknp.com/app/api/
 - mainnet-wallet:
 ```java
-huioneWalletClient = new OkhttpHuioneWalletClient("<wallet_url>");
+platformWalletClient = new OkhttpPlatformWalletClient("<wallet_url>");
 ```
 
 
@@ -70,7 +70,7 @@ public static void login(){
         HeaderRequest headerRequest = new HeaderRequest();
         headerRequest.setAccessToken(TOKEN_PROFILE.getAccessToken());
         headerRequest.setTokenId(jwtToken.getJti());
-        huioneWalletClient.fillHeader(headerRequest);
+        platformWalletClient.fillHeader(headerRequest);
         CommonResp<UserTokenProfile> userTokenProfileCommonResp = didApi.getTokenUserProfile().get();
         assert userTokenProfileCommonResp.isSuccess();
 

@@ -44,14 +44,14 @@ import java.util.concurrent.CompletableFuture;
  * @author chiyu
  * @since 2023.04
  */
-public class OkhttpHuioneWalletClient extends AbstractOkhttpHuioneWalletClient implements DIDApi, TransferApi, WalletApi {
+public class OkhttpPlatformWalletClient extends AbstractOkhttpPlatformWalletClient implements DIDApi, TransferApi, WalletApi {
 
     private HeaderRequest header;
 
     /**
      * @param baseUrl the base url
      */
-    public OkhttpHuioneWalletClient(String baseUrl) {
+    public OkhttpPlatformWalletClient(String baseUrl) {
         super(baseUrl);
     }
 

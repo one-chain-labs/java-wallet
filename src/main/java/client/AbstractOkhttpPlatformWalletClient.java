@@ -40,7 +40,7 @@ import java.util.concurrent.CompletableFuture;
  * @author chiyu
  * @since 2023.04
  */
-abstract class AbstractOkhttpHuioneWalletClient {
+abstract class AbstractOkhttpPlatformWalletClient {
 
     protected final OkHttpClient httpClient;
 
@@ -54,7 +54,7 @@ abstract class AbstractOkhttpHuioneWalletClient {
      *
      * @param baseUrl the base url
      */
-    public AbstractOkhttpHuioneWalletClient(String baseUrl) {
+    public AbstractOkhttpPlatformWalletClient(String baseUrl) {
         this.httpClient =
                 new OkHttpClient()
                         .newBuilder()

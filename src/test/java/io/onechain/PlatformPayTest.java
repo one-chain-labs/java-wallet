@@ -1,7 +1,10 @@
-package client;
+package io.onechain;
 
+import client.DIDApi;
+import client.OkhttpPlatformWalletClient;
+import client.TransferApi;
+import client.WalletApi;
 import com.google.common.collect.Lists;
-import io.onechain.OneChain;
 import io.onechain.bcsgen.MoveCallParam;
 import io.onechain.bcsgen.TransactionData;
 import io.onechain.bcsgen.ZkLoginSignature;
@@ -50,7 +53,7 @@ import java.util.List;
  * @author chiyu
  * @date 2024/12/2 15:01
  */
-public class HuionePayTest {
+public class PlatformPayTest {
 
 
     private static OneChain oneChain = OneChain.testNet();
@@ -80,7 +83,7 @@ public class HuionePayTest {
 
     private static BigInteger MAX_EPOCH;
 
-    private static OkhttpHuioneWalletClient huioneWalletClient;
+    private static OkhttpPlatformWalletClient platformWalletClient;
 
     private static DIDApi didApi;
 
@@ -94,10 +97,10 @@ public class HuionePayTest {
 
 
     static {
-        huioneWalletClient = new OkhttpHuioneWalletClient("https://onechain-api.tpknp.com/app/api/");
-        didApi = huioneWalletClient;
-        transferApi = huioneWalletClient;
-        walletApi = huioneWalletClient;
+        platformWalletClient = new OkhttpPlatformWalletClient("https://onechain-api.tpknp.com/app/api/");
+        didApi = platformWalletClient;
+        transferApi = platformWalletClient;
+        walletApi = platformWalletClient;
     }
 
 
@@ -140,7 +143,7 @@ public class HuionePayTest {
         HeaderRequest headerRequest = new HeaderRequest();
         headerRequest.setAccessToken(TOKEN_PROFILE.getAccessToken());
         headerRequest.setTokenId(jwtToken.getJti());
-        huioneWalletClient.fillHeader(headerRequest);
+        platformWalletClient.fillHeader(headerRequest);
         CommonResp<UserTokenProfile> userTokenProfileCommonResp = didApi.getTokenUserProfile().get();
         assert userTokenProfileCommonResp.isSuccess();
 
@@ -250,7 +253,7 @@ public class HuionePayTest {
                 .salt(salt)
                 .keyClaimName("sub")
                 .build();
-        CommonResp<ZKLoginData> zkLoginDataResponseCommonResp = huioneWalletClient.getZkProofs(zkServiceReqeust).get();
+        CommonResp<ZKLoginData> zkLoginDataResponseCommonResp = platformWalletClient.getZkProofs(zkServiceReqeust).get();
         assert zkLoginDataResponseCommonResp.isSuccess();
         return zkLoginDataResponseCommonResp.getData();
     }
